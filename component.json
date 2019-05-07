@@ -1,0 +1,306 @@
+{
+    "title": "Infermedica",
+    "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/infermedica.com/v2/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.infermedica.com/v2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getAllConditions": {
+            "main": "./lib/actions/getAllConditions.js",
+            "title": "List all conditions",
+            "description": "Returns a list of all available conditions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllConditions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCondition": {
+            "main": "./lib/actions/getCondition.js",
+            "title": "Get condition by id",
+            "description": "Returns details of a single condition specified by id parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCondition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "computeDiagnosis": {
+            "main": "./lib/actions/computeDiagnosis.js",
+            "title": "Query diagnostic engine",
+            "description": "Suggests possible diagnoses and relevant observations based on provided patient information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/computeDiagnosis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getExplanation": {
+            "main": "./lib/actions/getExplanation.js",
+            "title": "Query diagnostic engine for explanation",
+            "description": "Explains which evidence impact probability of selected condition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getExplanation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDatabaseInfo": {
+            "main": "./lib/actions/getDatabaseInfo.js",
+            "title": "Get database information",
+            "description": "Returns information about data used by diagnostic engine.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDatabaseInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllLabTests": {
+            "main": "./lib/actions/getAllLabTests.js",
+            "title": "List all lab tests",
+            "description": "Returns a list of all available lab tests.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllLabTests.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLabTest": {
+            "main": "./lib/actions/getLabTest.js",
+            "title": "Get lab test by id",
+            "description": "Returns details of a single lab test specified by id parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLabTest.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMatchingObservation": {
+            "main": "./lib/actions/getMatchingObservation.js",
+            "title": "Find observation matching given phrase",
+            "description": "Returns a single observation matching given phrase.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMatchingObservation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMentions": {
+            "main": "./lib/actions/getMentions.js",
+            "title": "Find mentions of observations in given text",
+            "description": "Returns list of mentions of observation found in given text.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMentions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllRiskFactors": {
+            "main": "./lib/actions/getAllRiskFactors.js",
+            "title": "List all risk factors",
+            "description": "Returns a list of all available risk factors.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllRiskFactors.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getRiskFactor": {
+            "main": "./lib/actions/getRiskFactor.js",
+            "title": "Get risk factor by id",
+            "description": "Returns details of a single risk factor specified by id parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getRiskFactor.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMatchingObservations": {
+            "main": "./lib/actions/getMatchingObservations.js",
+            "title": "Find observations matching given phrase",
+            "description": "Returns list of observations matching the given phrase.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMatchingObservations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSuggestions": {
+            "main": "./lib/actions/getSuggestions.js",
+            "title": "Query diagnostic engine for related symptoms",
+            "description": "Suggests possible symptoms based on provided patient information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSuggestions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllSymptoms": {
+            "main": "./lib/actions/getAllSymptoms.js",
+            "title": "List all symptoms",
+            "description": "Returns a list of all available symptoms.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllSymptoms.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSymptom": {
+            "main": "./lib/actions/getSymptom.js",
+            "title": "Get symptoms by id",
+            "description": "Returns details of a single symptom specified by id parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSymptom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "computeDiagnosis_1": {
+            "main": "./lib/actions/computeDiagnosis_1.js",
+            "title": "Query diagnostic engine for triage level",
+            "description": "Estimates triage level based on provided patient information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/computeDiagnosis_1.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

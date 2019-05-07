@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "phrase": {
+            "required": true,
+            "type": "string"
+        },
+        "sex": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "male",
+                "female"
+            ]
+        }
+    }
+}

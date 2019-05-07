@@ -1,0 +1,71 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "age": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "evaluated_at": {
+                    "description": "time when diagnosis was evaluated in ISO 8601 format",
+                    "type": "string"
+                },
+                "evidence": {
+                    "items": {
+                        "properties": {
+                            "choice_id": {
+                                "enum": [
+                                    "present",
+                                    "absent",
+                                    "unknown"
+                                ],
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "id of observation or condition",
+                                "type": "string"
+                            },
+                            "initial": {
+                                "description": "true for initial evidence, false for evidence reported during interview",
+                                "type": "boolean"
+                            },
+                            "observed_at": {
+                                "description": "time when evidence was observed in ISO 8601 format",
+                                "type": "string"
+                            },
+                            "related": {
+                                "description": "true for related evidence, false for evidence reported during interview",
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "choice_id",
+                            "id"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "extras": {
+                    "additionalProperties": {
+                        "type": "object"
+                    },
+                    "type": "object"
+                },
+                "sex": {
+                    "enum": [
+                        "male",
+                        "female"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "age",
+                "sex"
+            ],
+            "type": "object"
+        }
+    }
+}
